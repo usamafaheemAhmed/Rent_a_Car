@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Rent a car</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet"/>
+    <style>
+
+        .flex-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            border: 2px solid white;
+
+        }
+
+        .flex-item-left {
+            background-color: #f1f1f1;
+            padding: 10px;
+            flex: 50%;
+        }
+
+        .flex-item-right {
+            background-color: #f1f1f1;
+            padding: 10px;
+
+            flex: 50%;
+        }
+        .checked{
+            /*background-color: #5d5c5c;*/
+            background-color: rgb(253 85 33 / var(--tw-bg-opacity));
+            color: white;
+        }
+
+        .button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<main class="w-screen h-screen flex items-center justify-center">
+    <div
+            class="bg-gray-200 p-8 w-[30rem] min-h-[572px] flex items-center justify-center">
+        <div class="block" id="form">
+            <h2 class="text-3xl mb-2 font-semibold">
+                Get a real offer in minutes
+            </h2>
+            <p class="mb-8">
+                Most cars qualify; some we'll ask to see in person.
+            </p>
+            <div class="flex-container">
+                <button class="button flex-item-left checked" onclick="leftCheck(this)" id="l">LICENSE PLATE</button>
+                <button class="button  flex-item-right" onclick="rightCheck(this)" id="r">VIN</button>
+            </div>
+
+
+
+
+            <form class="text-center" style="margin-top: 1rem">
+                <input
+                        class="block w-full p-4 focus:outline-primary"
+                        id="vin"
+                        name="vin"
+                        placeholder="VIN"
+                        type="text"
+                />
+                <p
+                        class="mb-4 text-xs text-left text-primary ml-1 mt-2"
+                        id="vin-message"
+                ></p>
+
+                <input
+                        class="block w-full p-4 focus:outline-primary mb-4"
+                        id="vehicle-plate-number"
+                        name="vehicle-plate-number"
+                        placeholder="License plate number"
+                        required
+                        type="text"
+                />
+
+                <p class="mb-2 text-sm text-left text-primary ml-1 mt-2 state"
+                >Where is your car registered?</p>
+                <select class="block w-full p-4 focus:outline-primary mb-4 state" id="state">
+
+                    <option value="AL">AL - Alabama</option>
+                    <option value="AK">AK - Alaska</option>
+                    <option value="AZ">AZ - Arizona</option>
+                    <option value="AR">AR - Arkansas</option>
+                    <option value="CA">CA - California</option>
+                    <option value="CO">CO - Colorado</option>
+                    <option value="CT">CT - Connecticut</option>
+                    <option value="DE">DE - Delaware</option>
+                    <option value="DC">DC - District of Columbia</option>
+                    <option value="FL">FL - Florida</option>
+                    <option value="GA">GA - Georgia</option>
+                    <option value="HI">HI - Hawaii</option>
+                    <option value="ID">ID - Idaho</option>
+                    <option value="IL">IL - Illinois</option>
+                    <option value="IN">IN - Indiana</option>
+                    <option value="IA">IA - Iowa</option>
+                    <option value="KS">KS - Kansas</option>
+                    <option value="KY">KY - Kentucky</option>
+                    <option value="LA">LA - Louisiana</option>
+                    <option value="ME">ME - Maine</option>
+                    <option value="MD">MD - Maryland</option>
+                    <option value="MA">MA - Massachusetts</option>
+                    <option value="MI">MI - Michigan</option>
+                    <option value="MN">MN - Minnesota</option>
+                    <option value="MS">MS - Mississippi</option>
+                    <option value="MO">MO - Missouri</option>
+                    <option value="MT">MT - Montana</option>
+                    <option value="NE">NE - Nebraska</option>
+                    <option value="NV">NV - Nevada</option>
+                    <option value="NH">NH - New Hampshire</option>
+                    <option value="NJ">NJ - New Jersey</option>
+                    <option value="NM">NM - New Mexico</option>
+                    <option value="NY" selected>NY - New York</option>
+                    <option value="NC">NC - North Carolina</option>
+                    <option value="ND">ND - North Dakota</option>
+                    <option value="OH">OH - Ohio</option>
+                    <option value="OK">OK - Oklahoma</option>
+                    <option value="OR">OR - Oregon</option>
+                    <option value="PA">PA - Pennsylvania</option>
+                    <option value="PR">PR - Puerto Rico</option>
+                    <option value="RI">RI - Rhode Island</option>
+                    <option value="SC">SC - South Carolina</option>
+                    <option value="SD">SD - South Dakota</option>
+                    <option value="TN">TN - Tennessee</option>
+                    <option value="TX">TX - Texas</option>
+                    <option value="UT">UT - Utah</option>
+                    <option value="VT">VT - Vermont</option>
+                    <option value="VA">VA - Virginia</option>
+                    <option value="WA">WA - Washington</option>
+                    <option value="WV">WV - West Virginia</option>
+                    <option value="WI">WI - Wisconsin</option>
+                    <option value="WY">WY - Wyoming</option>
+                </select>
+
+
+                <input
+                        class="block w-full p-4 focus:outline-primary mb-4"
+                        id="mileage"
+                        name="mileage"
+                        placeholder="Mileage"
+                        required
+                        type="number"
+                />
+
+                <input
+                        class="block w-full p-4 focus:outline-primary"
+                        id="zip"
+                        maxlength="5"
+                        name="zip"
+                        placeholder="Zip code"
+                        type="text"
+                />
+                <p
+                        class="mb-4 text-xs text-left text-primary ml-1 mt-2"
+                        id="zip-message"
+                ></p>
+
+                <input
+                        class="block w-full p-4 focus:outline-primary mb-4"
+                        id="email"
+                        name="email"
+                        placeholder="Email address"
+                        required
+                        type="email"
+                />
+                <button
+                        class="block w-full p-4 bg-primary text-white"
+                        id="submit"
+                        type="button"
+                >
+                    Get Quote
+                </button>
+            </form>
+        </div>
+        <div class="hidden" id="loader">
+            <div class="lds-dual-ring"></div>
+        </div>
+        <div class="hidden bg-white h-full w-full" id="result">
+            <div
+                    class="border border-gray-300 p-4 min-h-[540px] flex items-center justify-center lg:mb-0 mb-8 lg:w-auto w-full"
+            >
+                <div class="text-center" id="result">
+                    <p class="text-2xl font-bold mt-8 mb-4">Here is your offer</p>
+                    <p class="text-5xl font-bold mb-4 text-primary" id="month"></p>
+                    <p id="resultModal"></p>
+                    <a class="mt-4 block w-full p-4 bg-primary text-white"
+                            href="https://calendly.com/empireleasingsystems/30min"
+                       target="_blank">Schedule an appointment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+></script>
+
+<script>
+
+    const formData = {};
+
+    let l = document.getElementById("l");
+    let r = document.getElementById("r");
+    $('#vin').hide();
+
+
+   function leftCheck(left){
+       left.classList.add('checked');
+       r.classList.remove('checked');
+       $('#vin').hide();
+       $('#vehicle-plate-number').show();
+       $('.state').show();
+
+    }
+
+    function rightCheck(left){
+        left.classList.add('checked');
+        l.classList.remove('checked');
+        $('#vin').show();
+        $('#vehicle-plate-number').hide();
+        $('.state').hide();
+
+    }
+    const zipMessage = document.getElementById("zip-message");
+    const vinMessage = document.getElementById("vin-message");
+
+    const formDiv = document.getElementById("form");
+    const loaderDuv = document.getElementById("loader");
+    const resultDiv = document.getElementById("result");
+
+    const API_KEY = "HNZPW09EYN9MH4F";
+    const API_URL = `https://marketvalue.vinaudit.com/getmarketvalue.php?key=${API_KEY}&format=json&period=90&mileage=average&vin=`;
+
+    const vinValidator = (value) => {
+        if (!value || value.length < 17) {
+            vinMessage.innerText =
+                "VIN must be a 17 character Vehicle Identification Number";
+        } else {
+            vinMessage.innerText = "";
+        }
+    };
+
+    const zipValidator = (value) => {
+        if (!value) {
+            zipMessage.innerText = "ZIP code must be entered";
+        } else if (value.length < 5) {
+            zipMessage.innerText = "ZIP code must be 5 digits";
+        } else if (isNaN(value)) {
+            zipMessage.innerText = "ZIP code is not valid";
+        } else {
+            zipMessage.innerText = "";
+        }
+    };
+
+    const fetchVin = async (vin) => {
+        const response = await fetch(API_URL + vin);
+        const data = await response.json();
+        return data;
+    };
+
+    const fetchPlate = async (plate,state) => {
+        // ajax request to api.php
+        let vin;
+        await $.ajax({
+            url: "./api.php",
+            type: "POST",
+            data: {plate: plate, state: state},
+            success: function (data) {
+                vin = data;
+            }
+        });
+
+        return vin;
+
+    };
+
+    const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+    const vinInput = document.getElementById("vin");
+    const zipInput = document.getElementById("zip");
+    const vehiclePlateNumber = document.getElementById(
+        "vehicle-plate-number"
+    );
+    const state = document.getElementById("state");
+    const mileageInput = document.getElementById("mileage");
+    const emailInput = document.getElementById("email");
+    const submit = document.getElementById("submit");
+
+    vinInput.addEventListener("blur", (e) => {
+        vinValidator(e.target.value);
+    });
+
+    vinInput.addEventListener("keyup", (e) => {
+        if (vinMessage.innerText) {
+            vinValidator(e.target.value);
+        }
+    });
+
+    zipInput.addEventListener("blur", (e) => {
+        zipValidator(e.target.value);
+    });
+
+    zipInput.addEventListener("keyup", (e) => {
+        if (zipMessage.innerText) {
+            zipValidator(e.target.value);
+        }
+    });
+
+    submit.addEventListener("click", async (e) => {
+        if (!emailInput.value || !mileageInput.value || !zipInput.value || state.value == 0) {
+            alert("One or more fields are missing, please check!");
+            return false;
+        } else if (mileageInput.value >= 120000) {
+            alert("Sorry! We can't accept car above 120,000 miles");
+            return false;
+        }
+        e.preventDefault();
+
+        if (
+            zipInput.value &&
+            !zipMessage.innerText &&
+            emailInput &&
+            mileageInput &&
+            vehiclePlateNumber.value &&
+            !vinInput.value
+        ) {
+            const res = await fetchPlate(vehiclePlateNumber.value,state.value);
+
+            if (res) {
+                formDiv.classList.replace("block", "hidden");
+                loaderDuv.classList.replace("hidden", "block");
+                result(res);
+            } else {
+                alert("Can't find license plate");
+            }
+
+
+        } else {
+            if (
+                zipInput.value &&
+                !zipMessage.innerText &&
+                vinInput.value &&
+                !vinMessage.innerText &&
+                emailInput &&
+                mileageInput
+            ) {
+                formDiv.classList.replace("block", "hidden");
+                loaderDuv.classList.replace("hidden", "block");
+                result(vinInput.value);
+            } else {
+                alert("Please fill out all fields");
+            }
+        }
+    });
+
+    const result = async (vin) => {
+        const result = await fetchVin(vin);
+        if (result.success) {
+            formData["vin"] = vinInput.value;
+            formData["zip"] = zipInput.value;
+            formData["mileage"] = mileageInput.value;
+            formData["email"] = emailInput.value;
+            resultModal.innerText = result.vehicle;
+            let avg = parseFloat(result.prices.average / 36)
+                .toFixed(0)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            month.innerText = `$${avg}`;
+           let vehicle = result.vehicle;
+            loaderDuv.classList.replace("block", "hidden");
+            resultDiv.classList.replace("hidden", "block");
+            console.log(formData);
+            let myJsonString = JSON.stringify(formData); //
+            console.log(myJsonString);
+            $.ajax({
+                type: "GET",
+                url: "./mail.php",
+                dataType: "json",
+                data: { data: myJsonString, avg : avg , vehicle : vehicle, 
+                
+                },
+                success: function (data) {
+                    console.log(data[0].message);
+                    console.log("Success");
+                },
+                error: function (error) {
+                    console.log("Error");
+                    console.log(error.responseText);
+                    console.log(error[0].message);
+                },
+            });
+        } else {
+            formDiv.classList.replace("hidden", "block");
+            loaderDuv.classList.replace("block", "hidden");
+            alert("Invalid VIN number");
+        }
+    };
+</script>
+
+<script src="./iframeResizer.contentWindow.min.js"></script>
+
+</body>
+</html>
